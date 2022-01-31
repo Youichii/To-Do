@@ -13,7 +13,7 @@ app.listen(port, () => {
   console.log(`Connected on port ${port}.`);
 });
 
-var toDo = [{task : "manger", time : 2, state : false}, {task : "dormir", time : 10, state : false}]
+var toDo = [{task : "Manger", time : 2, state : false}, {task : "Dormir", time : 10, state : true}]
 
 app.get('/api/todo', (req, res) => {
   res.send(toDo)

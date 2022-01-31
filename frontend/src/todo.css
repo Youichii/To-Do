@@ -23,7 +23,7 @@ h1 {
 }
 
 .textToDo, .timeToDo {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(230, 230, 230);
     justify-content: center;
     border: 0px;
     border-radius: 20px;
@@ -40,10 +40,11 @@ button {
     border: 0px;
     background-color: rgb(185, 67, 67);
     margin-left:1%;
+    opacity: 0.8;
 }
 
 button.delToDo {
-    background-color: rgb(169, 231, 76);
+    background-color: rgb(190, 233, 125);
 }
 
 .elements {
