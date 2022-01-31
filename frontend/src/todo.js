@@ -48,7 +48,7 @@ export default function Todo(){
            {listToDo.map((value, index) => {
                return (<div className='elements' key={index}>
                     Tâche n°{index + 1} : {value.task} <br/> Temps estimé : {value.time}h <br/> État : {value.state ? 'Fini' : 'À faire'}<br/>
-                    Supprimer la tâche <button onClick={event => {if(window.confirm("Voulez vous vraiment supprimer cette tâche ?")) deleteToDo(index)}}>x</button>
+                    Supprimer la tâche <button onClick={event => {if(window.confirm("Supprimer la tâche?")) deleteToDo(index)}}>x</button>
                     </div>)
            })}
         </div>
