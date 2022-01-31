@@ -27,7 +27,7 @@ app.post('/api/todo', (req, res) => {
   res.send(toDo)
 })
 
-app.delete('/api/todo/:i', (req, res) => {
+app.delete('/api/todo/:i', (req, res) => { //éviter de jouer avec des index et mettre un json avec un id, au cas ou l'ordre change
   const index = req.params.i  
   toDo.splice(index, 1)
   res.send(toDo)
