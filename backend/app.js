@@ -1,57 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const {Client} = require('pg')
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(logger('dev'));
+// server.js
+const express = require('express');
+const app = express();
+const port = 4000;
+const cors = require('cors');
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(cors())
+
+app.listen(port, () => {
+  console.log(`Connected on port ${port}.`);
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+var toDo = [{task : "manger", time : 2, state : false}, {task : "dormir", time : 10, state : false}]
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-const client = new Client({
-  host: process.env.DATABASE_HOST,
-  port: process.env.DATABASE_PORT,
-  user: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE
+app.get('/api/todo', (req, res) => {
+  res.send(toDo)
 })
 
-client.connect(err=> {
-  if (err) {
-    console.error('connection error', err.stack)
-  } else {
-    console.log('connected')
-  }
+app.post('/api/todo', (req, res) => {
+  const name = req.body.name
+  const time = req.body.time
+  newToDo = {task : name, time : time, state : false}
+  toDo.push(newToDo)
+  res.send(toDo)
 })
 
-module.exports = app;
+app.delete('/api/todo/:i', (req, res) => {
+  const index = req.params.i  
+  toDo.splice(index, 1)
+  res.send(toDo)
+})

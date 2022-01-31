@@ -1,0 +1,59 @@
+.mainBox {
+    background-color: rgb(151, 151, 151);
+    opacity: 0.9;
+    border : 0px;
+    width : fit-content;
+    margin: auto;
+    margin-top: 5%;
+    padding: 3%;
+    border-radius: 20px;
+    overflow: scroll;
+    height: 500px;
+    
+}
+
+html {
+    background-image: url('http://tigresse004.t.i.pic.centerblog.net/o/83bac240.jpg') ;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+}
+
+.textToDo, .timeToDo {
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    border: 0px;
+    border-radius: 20px;
+    padding: 1%;
+}
+
+.timeToDo {
+    width : 25%;
+    margin : 5%;
+}
+
+button {
+    border-radius: 50%;
+    border: 0px;
+    background-color: rgb(185, 67, 67);
+    margin-left:1%;
+}
+
+button.delToDo {
+    background-color: rgb(169, 231, 76);
+}
+
+.elements {
+    padding: 2%;
+    border-radius: 8px;
+    border : 0px;
+    background-color: rgb(230, 230, 230);
+    margin-top : 2%;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+  }

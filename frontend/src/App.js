@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Test from './test'
+import Todo from './todo'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'; 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <Router>
       
           <Routes>
-            <Route path='/login' exact element={<Test/>}/>
+            <Route path='/' exact element={<Todo/>}/>
           </Routes>
           
        
